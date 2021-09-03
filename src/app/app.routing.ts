@@ -76,6 +76,7 @@ export const appRoutes: Route[] = [
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
             {path: 'manage-wallet', loadChildren: () => import('app/modules/admin/manage-wallet/manage-wallet.module').then(m => m.ManageWalletModule)},
             {path: 'transfer', loadChildren: () => import('app/modules/admin/transfer/transfer.module').then(m => m.TransferModule)},
+            {path: 'manage-award', loadChildren: () => import('app/modules/admin/manage-award/manage-award.module').then(m => m.ManageAwardModule)},
         ]
     }
 ];

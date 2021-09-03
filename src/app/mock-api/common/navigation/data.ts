@@ -17,6 +17,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link : '/manage-wallet'
     },
     {
+        id   : 'manage_award',
+        title: 'Manage Awards',
+        type : 'basic',
+        icon : 'heroicons_outline:gift',
+        link : '/manage-award'
+    },
+    {
         id   : 'tranfer',
         title: 'Transfer',
         type : 'basic',
