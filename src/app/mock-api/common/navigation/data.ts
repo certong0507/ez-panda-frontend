@@ -11,10 +11,17 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
     {
         id   : 'manage_wallet',
-        title: 'Manage Wallet',
+        title: 'Manage Wallets',
         type : 'basic',
         icon : 'heroicons_outline:user',
         link : '/manage-wallet'
+    },
+    {
+        id   : 'tranfer',
+        title: 'Transfer',
+        type : 'basic',
+        icon : 'heroicons_outline:switch-horizontal',
+        link : '/transfer'
     },
     {
         id   : 'sign_out',
