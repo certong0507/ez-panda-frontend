@@ -11,7 +11,7 @@
     "
 >
     <div
-        style="background-color: #1da6fc; color: #fff; height: 100vh;"
+        style="background-color: #1da6fc; color: #fff; height: 100vh"
         class="
             md:flex md:items-center md:justify-end
             w-full
@@ -71,8 +71,13 @@
             <form class="mt-8" [formGroup]="signInForm" #signInNgForm="ngForm">
                 <!-- Email field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Email address</mat-label>
-                    <input id="email" matInput [formControlName]="'email'" />
+                    <mat-label class="text-white">Email address</mat-label>
+                    <input
+                        id="email"
+                        matInput
+                        [formControlName]="'email'"
+                        class="text-black"
+                    />
                     <mat-error
                         *ngIf="signInForm.get('email').hasError('required')"
                     >
@@ -87,9 +92,10 @@
 
                 <!-- Password field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Password</mat-label>
+                    <mat-label class="text-white">Password</mat-label>
                     <input
                         id="password"
+                        class="text-black"
                         matInput
                         type="password"
                         [formControlName]="'password'"
@@ -133,7 +139,7 @@
                         class="
                             text-md
                             font-medium
-                            text-primary-500
+                            text-white-500
                             hover:underline
                         "
                         [routerLink]="['/forgot-password']"
