@@ -36,6 +36,8 @@ import {
     FuseNavigationService,
     FuseVerticalNavigationComponent,
 } from '@fuse/components/navigation';
+import { User } from 'app/core/user/user.types';
+import { UserService } from 'app/core/user/user.service';
 
 export type ChartOptions = {
     series: ApexAxisChartSeries;
@@ -56,6 +58,7 @@ export type ChartOptions = {
 export class ExampleComponent {
     // @ViewChild('recentTransactionsTable', { read: MatSort })
     @ViewChild('chart')
+    user: User;
     chart: ChartComponent;
     public chartOptions: Partial<ChartOptions>;
     recentTransactionsTableMatSort: MatSort;
@@ -70,6 +73,8 @@ export class ExampleComponent {
         'amount',
         'status',
     ];
+    isParent: boolean;
+    accountBalanceOptions: ApexOptions;
 
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -80,10 +85,18 @@ export class ExampleComponent {
         private _financeService: FinanceService,
         private _fuseConfirmationService: FuseConfirmationService,
         public dialog: MatDialog,
-        private _fuseNavigationService: FuseNavigationService
+        private _fuseNavigationService: FuseNavigationService,
+        private _userService: UserService
     ) {}
 
     ngOnInit(): void {
+        this._userService.user$
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe((user: User) => {
+                this.user = user;
+                this.isParent = user?.userRole === 'parent';
+            });
+
         this._financeService.data$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((data) => {
@@ -132,6 +145,48 @@ export class ExampleComponent {
     }
 
     private _prepareChartData(): void {
+        this.accountBalanceOptions = {
+            chart: {
+                animations: {
+                    speed: 400,
+                    animateGradually: {
+                        enabled: false,
+                    },
+                },
+                fontFamily: 'inherit',
+                foreColor: 'inherit',
+                width: '100%',
+                height: '100%',
+                type: 'area',
+                sparkline: {
+                    enabled: true,
+                },
+            },
+            colors: ['#A3BFFA', '#667EEA'],
+            fill: {
+                colors: ['#CED9FB', '#AECDFD'],
+                opacity: 0.5,
+                type: 'solid',
+            },
+            series: this.data.accountBalance.series,
+            stroke: {
+                curve: 'straight',
+                width: 2,
+            },
+            tooltip: {
+                followCursor: true,
+                theme: 'dark',
+                x: {
+                    format: 'MMM dd, yyyy',
+                },
+                y: {
+                    formatter: (value): string => value + '%',
+                },
+            },
+            xaxis: {
+                type: 'datetime',
+            },
+        };
         // New vs. returning
         this.chartNewVsReturning = {
             chart: {
@@ -149,7 +204,7 @@ export class ExampleComponent {
                     enabled: true,
                 },
             },
-            colors: ['#3182CE', '#63B3ED', "#e3f2fd"],
+            colors: ['#3182CE', '#63B3ED', '#e3f2fd'],
             labels: ['New', 'Returning'],
             plotOptions: {
                 pie: {
