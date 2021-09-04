@@ -1,4 +1,39 @@
 <div class="flex flex-col flex-auto min-w-0">
+    <div
+        class="
+            relative
+            flex flex-0
+            items-center
+            h-16
+            px-4
+            md:px-6
+            z-49
+            dark:shadow-none dark:border-b dark:bg-transparent
+            print:hidden
+        "
+        style="align-self: flex-end;"
+    >
+        <!-- Navigation toggle button -->
+        <button mat-mini-fab (click)="toggleNavigation('mainNavigation')">
+            <mat-icon [svgIcon]="'heroicons_solid:user'"></mat-icon>
+        </button>
+        
+        <!-- Components -->
+        <!-- <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2">
+            <languages></languages>
+            <fuse-fullscreen class="hidden md:block"></fuse-fullscreen>
+            <search [appearance]="'bar'"></search>
+            <shortcuts></shortcuts>
+            <messages></messages>
+            <button
+                class="lg:hidden"
+                mat-icon-button
+                (click)="quickChat.toggle()">
+                <mat-icon [svgIcon]="'heroicons_outline:chat-alt-2'"></mat-icon>
+            </button>
+        </div> -->
+    </div>
+
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
         <!-- CONTENT GOES HERE -->
@@ -116,6 +151,7 @@
                             filter-list
                             mr-5
                         "
+                        (click)="openTranferDialog('Edwards')"
                     >
                         <div class="flex flex-col m-auto">
                             <div class="items-center">
@@ -151,6 +187,7 @@
                             filter-list
                             mr-5
                         "
+                        (click)="openTranferDialog('Adam')"
                     >
                         <div class="flex flex-col m-auto">
                             <div class="items-center">
@@ -186,6 +223,7 @@
                             filter-list
                             mr-5
                         "
+                        (click)="openTranferDialog('Rebecca')"
                     >
                         <div class="flex flex-col m-auto">
                             <div class="items-center">

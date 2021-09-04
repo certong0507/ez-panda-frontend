@@ -1,7 +1,21 @@
-<div class="inner-container-title">
-    <div class="inner-container-title-col-1" (click)="back()">
-        <mat-icon aria-hidden="false">keyboard_arrow_left</mat-icon>
-    </div>
+ <div
+        class="
+            relative
+            flex flex-0
+            items-center
+            w-full
+            h-16
+            px-4
+            md:px-6
+            z-49
+            dark:shadow-none dark:border-b dark:bg-transparent
+            print:hidden
+            shadow
+        "
+    >
+    <!-- <div class="inner-container-title-col-1" (click)="back()"> -->
+        <mat-icon aria-hidden="false" (click)="back()">keyboard_arrow_left</mat-icon>
+    <!-- </div> -->
     <div class="inner-container-title-col-2">
         <p>{{headerText}}</p>
     </div>

@@ -1,3 +1,7 @@
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @angular-eslint/use-lifecycle-interface */
+/* eslint-disable @typescript-eslint/member-ordering */
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
@@ -26,6 +30,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
 import { FinanceService } from 'app/modules/admin/example/finance.service';
 import { UserDetailsDialog } from 'app/layout/common/dialogs/user-details-dialog/user-details-dialog.component';
+import { TransactionDialog } from 'app/layout/common/dialogs/transaction-dialog/transaction-dialog.component';
+import {
+    FuseNavigationService,
+    FuseVerticalNavigationComponent,
+} from '@fuse/components/navigation';
 
 export type ChartOptions = {
     series: ApexAxisChartSeries;
@@ -68,7 +77,8 @@ export class ExampleComponent {
     constructor(
         private _financeService: FinanceService,
         private _fuseConfirmationService: FuseConfirmationService,
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        private _fuseNavigationService: FuseNavigationService
     ) {}
 
     ngOnInit(): void {
@@ -221,6 +231,20 @@ export class ExampleComponent {
         };
     }
 
+    openTranferDialog(name: String): void {
+        const dialogRef = this.dialog.open(TransactionDialog, {
+            maxWidth: '90vw',
+            width: '90%',
+            data: {
+                name,
+            },
+        });
+
+        dialogRef.afterClosed().subscribe((result) => {
+            console.log('Dialog result: ', result);
+        });
+    }
+
     openDialog(): void {
         const dialogRef = this.dialog.open(UserDetailsDialog, {
             maxWidth: '90vw',
@@ -228,15 +252,20 @@ export class ExampleComponent {
         });
 
         dialogRef.afterClosed().subscribe((result) => {
-            console.log(`Dialog result: `, result);
+            console.log('Dialog result: ', result);
         });
+    }
 
-        // // Open the dialog and save the reference of it
-        // const dialogRef = this._fuseConfirmationService.open();
+    toggleNavigation(name: string): void {
+        // Get the navigation
+        const navigation =
+            this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(
+                name
+            );
 
-        // // Subscribe to afterClosed from the dialog reference
-        // dialogRef.afterClosed().subscribe((result) => {
-        //     console.log(result);
-        // });
+        if (navigation) {
+            // Toggle the opened status
+            navigation.toggle();
+        }
     }
 }
