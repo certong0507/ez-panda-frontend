@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddPlanComponent implements OnInit {
 
   form: FormGroup;
+  headerText: string;
 
   constructor(
     private _formBuilder: FormBuilder,
