@@ -8,6 +8,7 @@ import { FuseCardModule } from '@fuse/components/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const addPlanRoutes: Route[] = [
   {
@@ -27,6 +28,7 @@ const addPlanRoutes: Route[] = [
     MatIconModule,
     MatButtonModule,
     MatInputModule,
+    MatSnackBarModule,
   ]
 })
 export class AddPlanModule { }
