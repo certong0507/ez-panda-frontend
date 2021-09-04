@@ -6,8 +6,8 @@
             <p class="text-lg font-medium">Mission</p>
             <div *ngFor="let item of mission;" class="xl:col-span-2 flex flex-col flex-auto bg-card shadow rounded-2xl overflow-hidden mt-5">
                 <div class="p-6">
-                    <div class="mr-4 text-lg font-medium tracking-tight leading-6 truncate">
-                        {{ item.mission }}
+                    <div class="mb-3 font-medium">
+                        <mat-label style="font-weight: 600 !important; font-size: 1.25rem !important;">{{ item.mission }}</mat-label>
                     </div>
                     <div class="text-secondary font-medium">
                         {{ item.description }}
@@ -22,12 +22,12 @@
                     </div>
                 </div>
                 <button class="px-6" mat-flat-button [color]="'accent'">
-                    Mark as Completed
+                    {{button}}
                 </button>
             </div>
             <button mat-mini-fab=""
                 class="mat-focus-indicator mat-mini-fab mat-button-base bg-primary mat-fab-bottom-right"
-                style="position: fixed; bottom: 75px; right: 25px;" [routerLink]="['/add-mission']">
+                style="position: fixed; bottom: 75px; right: 25px;" [routerLink]="['/add-mission']" *ngIf="this.user.userRole === 'parent'">
                 <span class="mat-button-wrapper">
                     <mat-icon role="img" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true">
                         add

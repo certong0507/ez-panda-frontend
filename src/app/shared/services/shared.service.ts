@@ -65,7 +65,7 @@ export class SharedService {
       description: `Try your best to score 8 and above, mummy and daddy love you!`,
     },
     {
-      plan: 'Math exam core',
+      mission: 'Math exam core',
       target: 'B+',
       credit: 25,
       description: `If you score B+ and above, 20 credits will be rewarded.`,

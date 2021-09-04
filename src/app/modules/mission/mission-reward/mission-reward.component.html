@@ -23,7 +23,7 @@
                             leading-6
                             truncate
                         ">
-                        {{item.reward}}
+                        <mat-label style="font-weight: 600 !important; font-size: 1.25rem !important;">{{ item.reward }}</mat-label>
                     </div>
                     <br>
                     <div class="text-secondary font-medium">
@@ -31,12 +31,12 @@
                     </div>
                 </div>
                 <button class="px-6" mat-flat-button [color]="'accent'">
-                    Redeem
+                    {{button}}
                 </button>
             </div>
         </div>
         <button mat-mini-fab="" class="mat-focus-indicator mat-mini-fab mat-button-base bg-primary mat-fab-bottom-right"
-            style="position: fixed; bottom: 75px; right: 25px;" [routerLink]="['/add-reward']">
+            style="position: fixed; bottom: 75px; right: 25px;" [routerLink]="['/add-reward']" *ngIf="this.user.userRole === 'parent'">
             <span class="mat-button-wrapper">
                 <mat-icon role="img" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true">
                     add
