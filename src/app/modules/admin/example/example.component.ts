@@ -23,6 +23,7 @@ import {
     ApexFill,
 } from 'ng-apexcharts';
 import { MatSort } from '@angular/material/sort';
+import { ApexOptions } from 'ng-apexcharts';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
@@ -61,6 +62,7 @@ export class ExampleComponent {
     data: any;
     recentTransactionsDataSource: MatTableDataSource<any> =
         new MatTableDataSource();
+    chartNewVsReturning: ApexOptions;
     recentTransactionsTableColumns: string[] = [
         'transactionId',
         'date',
@@ -130,6 +132,48 @@ export class ExampleComponent {
     }
 
     private _prepareChartData(): void {
+        // New vs. returning
+        this.chartNewVsReturning = {
+            chart: {
+                animations: {
+                    speed: 400,
+                    animateGradually: {
+                        enabled: false,
+                    },
+                },
+                fontFamily: 'inherit',
+                foreColor: 'inherit',
+                height: '100%',
+                type: 'donut',
+                sparkline: {
+                    enabled: true,
+                },
+            },
+            colors: ['#3182CE', '#63B3ED', "#e3f2fd"],
+            labels: ['New', 'Returning'],
+            plotOptions: {
+                pie: {
+                    customScale: 0.9,
+                    expandOnClick: false,
+                    donut: {
+                        size: '70%',
+                    },
+                },
+            },
+            series: [60, 30, 10],
+            states: {
+                hover: {
+                    filter: {
+                        type: 'none',
+                    },
+                },
+                active: {
+                    filter: {
+                        type: 'none',
+                    },
+                },
+            },
+        };
         this.chartOptions = {
             series: [
                 {
@@ -144,8 +188,15 @@ export class ExampleComponent {
                 height: 350,
                 type: 'bar',
             },
+            // fill   : {
+            //     colors : ['#1e2938'],
+            //     opacity: 0.9,
+            //     type   : 'solid'
+            // },
             plotOptions: {
                 bar: {
+                    borderRadius: 15,
+                    columnWidth: '30%',
                     dataLabels: {
                         position: 'top', // top, center, bottom
                     },
