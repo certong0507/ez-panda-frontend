@@ -24,12 +24,21 @@ export class AddPlanComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const data = history.state.data;
+
     this.form = this._formBuilder.group({
       plan: ['', [Validators.required]],
       duration: ['', Validators.required],
       reward: ['', Validators.required],
       description: ['', Validators.required],
     });
+
+    if (data) {
+      this.form.patchValue({
+        plan: data.plan,
+        description: data.description,
+      });
+    }
   }
 
   onSave(): void {

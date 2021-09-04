@@ -3,15 +3,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({
-    selector: 'plan-detail-dialog',
-    templateUrl: './plan-detail-dialog.component.html',
+    selector: 'plan-subscribe-dialog',
+    templateUrl: './plan-subscribe-dialog.component.html',
 })
-export class PlanDetailDialogComponent {
+export class PlanSubscribeDialogComponent {
     formFieldHelpers: string[] = [''];
     data: any;
 
     constructor(
-        public dialogRef: MatDialogRef<PlanDetailDialogComponent>,
+        public dialogRef: MatDialogRef<PlanSubscribeDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public inputData,
     ) {
         this.data = inputData;

@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FuseCardModule } from '@fuse/components/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { PlanSubscribeDialogComponent } from 'app/layout/common/dialogs/plan-subscribe-dialog/plan-subscribe-dialog.component';
 
 const planRoutes: Route[] = [
   {
@@ -18,6 +20,7 @@ const planRoutes: Route[] = [
 @NgModule({
   declarations: [
     PlanListingComponent,
+    PlanSubscribeDialogComponent
   ],
   imports: [
     RouterModule.forChild(planRoutes),
@@ -27,6 +30,7 @@ const planRoutes: Route[] = [
     FuseCardModule,
     MatIconModule,
     MatButtonModule,
+    MatInputModule,
   ],
 })
 export class PlanListingModule { }

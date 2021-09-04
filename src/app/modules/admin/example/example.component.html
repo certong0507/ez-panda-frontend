@@ -1,6 +1,5 @@
 <div class="flex flex-col flex-auto min-w-0">
-    <div
-        class="
+    <div class="
             relative
             flex flex-0
             items-center
@@ -10,9 +9,7 @@
             z-49
             dark:shadow-none dark:border-b dark:bg-transparent
             print:hidden
-        "
-        style="align-self: flex-end"
-    >
+        " style="align-self: flex-end">
         <!-- Navigation toggle button -->
         <button mat-mini-fab (click)="toggleNavigation('mainNavigation')">
             <mat-icon [svgIcon]="'heroicons_solid:user'"></mat-icon>
@@ -37,55 +34,100 @@
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
         <!-- CONTENT GOES HERE -->
-        <div class="rounded-2xl">
+        <div class="rounded-2xl" *ngIf="!isParent">
+            <div class="flex flex-col bg-card items-center shadow p-6 mt-2 rounded-2xl mb-4">
+                <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500">RM 21</div>
+                <div class="text-lg font-medium text-blue-600 dark:text-blue-500">My Credit</div>
+            </div>
+
+            <div
+                class="sm:col-span-2 md:col-span-4 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden mb-4">
+                <!-- New issues -->
+                <div
+                    class="col-span-2 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-indigo-50 text-indigo-800 dark:bg-white dark:bg-opacity-5 dark:text-indigo-400">
+                    <div class="text-5xl sm:text-7xl font-semibold leading-none tracking-tight">
+                        RM 5.5
+                    </div>
+                    <div class="mt-1 text-sm sm:text-lg font-medium">Total Amount (Saving Account)</div>
+                </div>
+            </div>
+
+            <div
+                class="sm:col-span-2 md:col-span-4 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden mb-4">
+                <!-- Closed -->
+                <div
+                    class="col-span-2 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-green-50 text-green-800 dark:bg-white dark:bg-opacity-5 dark:text-green-500">
+                    <div class="text-5xl sm:text-7xl font-semibold leading-none tracking-tight">
+                        RM 2
+                    </div>
+                    <div class="mt-1 text-sm sm:text-lg font-medium">Total Amount (Plan A Account)</div>
+                </div>
+            </div>
+
+
+            <!-- <div class="flex flex-col flex-auto bg-card shadow rounded-2xl overflow-hidden">
+                <div class="flex flex-col p-6 pb-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex flex-col">
+                            <div class="mr-4 text-lg font-medium tracking-tight leading-6 truncate">Account Balance
+                            </div>
+                            <div class="text-secondary font-medium">Monthly balance growth and avg. monthly income</div>
+                        </div>
+                        <div class="ml-2">
+                            <button class="h-6 min-h-6 px-2 rounded-full bg-hover" mat-button
+                                [matMenuTriggerFor]="accountBalanceMenu">
+                                <span class="font-medium text-sm text-secondary">12 months</span>
+                            </button>
+                            <mat-menu #accountBalanceMenu="matMenu">
+                                <button mat-menu-item>3 months</button>
+                                <button mat-menu-item>6 months</button>
+                                <button mat-menu-item>9 months</button>
+                                <button mat-menu-item>12 months</button>
+                            </mat-menu>
+                        </div>
+                    </div>
+                    <div class="flex items-start mt-6 mr-2">
+                        <div class="flex flex-col">
+                            <div class="font-semibold text-3xl md:text-5xl tracking-tighter">
+                                {{data.accountBalance.growRate}}%</div>
+                            <div class="font-medium text-sm text-secondary leading-none">Average Monthly Growth</div>
+                        </div>
+                        <div class="flex flex-col ml-8 md:ml-16">
+                            <div class="font-semibold text-3xl md:text-5xl tracking-tighter">{{data.accountBalance.ami |
+                                currency:'USD'}}</div>
+                            <div class="font-medium text-sm text-secondary leading-none">Average Monthly Income</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-auto">
+                    <apx-chart class="flex-auto w-full h-full" [chart]="accountBalanceOptions.chart"
+                        [colors]="accountBalanceOptions.colors" [fill]="accountBalanceOptions.fill"
+                        [series]="accountBalanceOptions.series" [stroke]="accountBalanceOptions.stroke"
+                        [tooltip]="accountBalanceOptions.tooltip" [xaxis]="accountBalanceOptions.xaxis"></apx-chart>
+                </div>
+            </div> -->
+        </div>
+        <div class="rounded-2xl" *ngIf="isParent">
             <!-- Github issues summary -->
             <div
-                class="
-                    sm:col-span-2
-                    md:col-span-4
-                    flex flex-col flex-auto
-                    p-6
-                    bg-card
-                    shadow
-                    rounded-2xl
-                    overflow-hidden
-                "
-            >
-                <div
-                    class="
+                class="sm:col-span-2 md:col-span-4 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                <div class="
                         flex flex-col
                         sm:flex-row
                         items-start
                         justify-between
-                    "
-                >
-                    <div
-                        class="
+                    ">
+                    <div class="
                             text-lg
                             font-medium
                             tracking-tight
                             leading-6
                             truncate
-                        "
-                    >
-                        Lorem Ipsum
+                        ">
+                        Total Amount of Subscription for April
                     </div>
-                    <!-- <div class="mt-3 sm:mt-0 sm:ml-2">
-                        <mat-button-toggle-group
-                            value="this-week"
-                            #githubIssuesWeekSelector="matButtonToggleGroup"
-                        >
-                            <mat-button-toggle value="last-week"
-                                >Last Week</mat-button-toggle
-                            >
-                            <mat-button-toggle value="this-week"
-                                >This Week</mat-button-toggle
-                            >
-                        </mat-button-toggle-group>
-                    </div> -->
                 </div>
-                <div
-                    class="
+                <div class="
                         grid grid-cols-1
                         lg:grid-cols-2
                         grid-flow-row
@@ -93,24 +135,17 @@
                         w-full
                         mt-8
                         sm:mt-4
-                    "
-                >
+                    ">
                     <!-- New vs. Closed -->
                     <div class="flex flex-col flex-auto">
                         <div class="font-medium text-secondary">
                             <!-- New vs. Closed -->
                         </div>
                         <div class="flex flex-col flex-auto">
-                            <apx-chart
-                                [series]="chartOptions.series"
-                                [chart]="chartOptions.chart"
-                                [dataLabels]="chartOptions.dataLabels"
-                                [plotOptions]="chartOptions.plotOptions"
-                                [yaxis]="chartOptions.yaxis"
-                                [xaxis]="chartOptions.xaxis"
-                                [fill]="chartOptions.fill"
-                                [title]="chartOptions.title"
-                            ></apx-chart>
+                            <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                                [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
+                                [yaxis]="chartOptions.yaxis" [xaxis]="chartOptions.xaxis" [fill]="chartOptions.fill"
+                                [title]="chartOptions.title"></apx-chart>
                         </div>
                     </div>
                 </div>
@@ -121,29 +156,20 @@
             </div>
             <div class="overflow-auto">
                 <div class="flex flex-row w-max pb-5">
-                    <fuse-card
-                        style="
+                    <fuse-card style="
                             background: transparent;
                             box-shadow: none;
                             margin: auto;
-                        "
-                        class="flex flex-col w-full px-5 pt-4 pb-4 filter-list"
-                        (click)="openDialog()"
-                    >
+                        " class="flex flex-col w-full px-5 pt-4 pb-4 filter-list" (click)="openDialog()">
                         <div class="flex flex-col mt-5">
                             <div class="text-center">
-                                <mat-icon
-                                    color="accent"
-                                    style="transform: scale(2)"
-                                    svgIcon="heroicons_outline:plus-circle"
-                                ></mat-icon>
+                                <mat-icon color="accent" style="transform: scale(2)"
+                                    svgIcon="heroicons_outline:plus-circle"></mat-icon>
                             </div>
                         </div>
                     </fuse-card>
 
-                    <fuse-card
-                        style="border: 3px solid #1da6fc"
-                        class="
+                    <fuse-card class="
                             flex flex-col
                             w-full
                             px-5
@@ -151,26 +177,18 @@
                             pb-4
                             filter-list
                             mr-5
-                        "
-                        (click)="openTranferDialog('Edwards')"
-                    >
+                        " (click)="openTranferDialog('Edwards')">
                         <div class="flex flex-col m-auto">
                             <div class="items-center">
                                 <div>
-                                    <img
-                                        style="width: 80%"
-                                        class="m-auto rounded-full"
-                                        src="assets/images/avatars/robot-1.png"
-                                        alt="Card cover image"
-                                    />
+                                    <img style="width: 80%" class="m-auto rounded-full"
+                                        src="assets/images/avatars/robot-1.png" alt="Card cover image" />
                                 </div>
                                 <div class="text-center">
-                                    <div
-                                        class="
+                                    <div class="
                                             font-medium
                                             text-sm text-secondary
-                                        "
-                                    >
+                                        ">
                                         Edwards
                                     </div>
                                 </div>
@@ -178,9 +196,7 @@
                         </div>
                     </fuse-card>
 
-                    <fuse-card
-                        style="border: 3px solid #1da6fc"
-                        class="
+                    <fuse-card class="
                             flex flex-col
                             w-full
                             px-5
@@ -188,26 +204,18 @@
                             pb-4
                             filter-list
                             mr-5
-                        "
-                        (click)="openTranferDialog('Adam')"
-                    >
+                        " (click)="openTranferDialog('Adam')">
                         <div class="flex flex-col m-auto">
                             <div class="items-center">
                                 <div>
-                                    <img
-                                        style="width: 80%"
-                                        class="m-auto rounded-full"
-                                        src="assets/images/avatars/robot-2.png"
-                                        alt="Card cover image"
-                                    />
+                                    <img style="width: 80%" class="m-auto rounded-full"
+                                        src="assets/images/avatars/robot-2.png" alt="Card cover image" />
                                 </div>
                                 <div class="text-center">
-                                    <div
-                                        class="
+                                    <div class="
                                             font-medium
                                             text-sm text-secondary
-                                        "
-                                    >
+                                        ">
                                         Adam
                                     </div>
                                 </div>
@@ -215,9 +223,7 @@
                         </div>
                     </fuse-card>
 
-                    <fuse-card
-                        style="border: 3px solid #1da6fc"
-                        class="
+                    <fuse-card class="
                             flex flex-col
                             w-full
                             px-5
@@ -225,26 +231,18 @@
                             pb-4
                             filter-list
                             mr-5
-                        "
-                        (click)="openTranferDialog('Rebecca')"
-                    >
+                        " (click)="openTranferDialog('Rebecca')">
                         <div class="flex flex-col m-auto">
                             <div class="items-center">
                                 <div>
-                                    <img
-                                        style="width: 80%"
-                                        class="m-auto rounded-full"
-                                        src="assets/images/avatars/robot-3.png"
-                                        alt="Card cover image"
-                                    />
+                                    <img style="width: 80%" class="m-auto rounded-full"
+                                        src="assets/images/avatars/robot-3.png" alt="Card cover image" />
                                 </div>
                                 <div class="text-center">
-                                    <div
-                                        class="
+                                    <div class="
                                             font-medium
                                             text-sm text-secondary
-                                        "
-                                    >
+                                        ">
                                         Rebecca
                                     </div>
                                 </div>
@@ -254,8 +252,7 @@
                 </div>
             </div>
 
-            <div
-                class="
+            <div class="
                     xl:col-span-2
                     flex flex-col flex-auto
                     bg-card
@@ -263,60 +260,46 @@
                     rounded-2xl
                     overflow-hidden
                     mt-5
-                "
-            >
-                <div
-                    class="
+                ">
+                <div class="
                         flex flex-col flex-auto
                         bg-card
                         shadow
                         rounded-2xl
                         overflow-hidden
                         p-6
-                    "
-                >
+                    ">
                     <div class="flex items-start justify-between">
-                        <div
-                            class="
+                        <div class="
                                 text-lg
                                 font-medium
                                 tracking-tight
                                 leading-6
                                 truncate
-                            "
-                        >
+                            ">
                             Total Amount in Saving Account
                         </div>
                     </div>
                     <div class="flex flex-col flex-auto mt-6 h-44">
-                        <apx-chart
-                            class="
+                        <apx-chart class="
                                 flex flex-auto
                                 items-center
                                 justify-center
                                 w-full
                                 h-full
-                            "
-                            [chart]="chartNewVsReturning.chart"
-                            [colors]="chartNewVsReturning.colors"
-                            [labels]="chartNewVsReturning.labels"
-                            [plotOptions]="chartNewVsReturning.plotOptions"
-                            [series]="chartNewVsReturning.series"
-                            [states]="chartNewVsReturning.states"
-                            [tooltip]="chartNewVsReturning.tooltip"
-                        ></apx-chart>
+                            " [chart]="chartNewVsReturning.chart" [colors]="chartNewVsReturning.colors"
+                            [labels]="chartNewVsReturning.labels" [plotOptions]="chartNewVsReturning.plotOptions"
+                            [series]="chartNewVsReturning.series" [states]="chartNewVsReturning.states"
+                            [tooltip]="chartNewVsReturning.tooltip"></apx-chart>
                     </div>
                     <div class="mt-8">
                         <div class="-my-3 divide-y">
                             <ng-container>
                                 <div class="grid grid-cols-3 py-3">
                                     <div class="flex items-center">
-                                        <div
-                                            class="flex-0 w-2 h-2 rounded-full"
-                                            [style.backgroundColor]="
+                                        <div class="flex-0 w-2 h-2 rounded-full" [style.backgroundColor]="
                                                 chartNewVsReturning.colors[0]
-                                            "
-                                        ></div>
+                                            "></div>
                                         <div class="ml-3 truncate">Edwards</div>
                                     </div>
                                     <div class="font-medium text-right">
@@ -331,12 +314,9 @@
                             <ng-container>
                                 <div class="grid grid-cols-3 py-3">
                                     <div class="flex items-center">
-                                        <div
-                                            class="flex-0 w-2 h-2 rounded-full"
-                                            [style.backgroundColor]="
+                                        <div class="flex-0 w-2 h-2 rounded-full" [style.backgroundColor]="
                                                 chartNewVsReturning.colors[1]
-                                            "
-                                        ></div>
+                                            "></div>
                                         <div class="ml-3 truncate">Adam</div>
                                     </div>
                                     <div class="font-medium text-right">
@@ -351,12 +331,9 @@
                             <ng-container>
                                 <div class="grid grid-cols-3 py-3">
                                     <div class="flex items-center">
-                                        <div
-                                            class="flex-0 w-2 h-2 rounded-full"
-                                            [style.backgroundColor]="
+                                        <div class="flex-0 w-2 h-2 rounded-full" [style.backgroundColor]="
                                                 chartNewVsReturning.colors[2]
-                                            "
-                                        ></div>
+                                            "></div>
                                         <div class="ml-3 truncate">Rebecca</div>
                                     </div>
                                     <div class="font-medium text-right">
