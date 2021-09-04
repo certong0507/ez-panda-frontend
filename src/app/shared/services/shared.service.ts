@@ -39,6 +39,24 @@ export class SharedService {
       amazing grasslands.`,
     },
   ];
+  hlbPlans = [
+    {
+      plan: 'Plan Budget',
+      duration: 10,
+      reward: 'KFC Voucher',
+      description: `From rocky mountains to crystal clear lakes, these are the places you must
+      see and enjoy. In summers you can bring your food and have a little picnic on top of the
+      amazing grasslands.`,
+    },
+    {
+      plan: 'Plan Premium',
+      duration: 10,
+      reward: '',
+      description: `Rocky mountains to crystal clear lakes, these are the places you must
+      see and enjoy. In summers you can bring your food and have a little picnic on top of the
+      amazing grasslands.`,
+    },
+  ];
   userRole: string = 'parent';
 
   constructor(

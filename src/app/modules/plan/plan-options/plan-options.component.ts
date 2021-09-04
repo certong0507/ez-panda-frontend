@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { PlanDetailDialogComponent } from 'app/layout/common/dialogs/plan-detail-dialog/plan-detail-dialog.component';
+import { SharedService } from 'app/shared/services/shared.service';
 
 @Component({
   selector: 'app-plan-options',
@@ -11,21 +12,25 @@ import { PlanDetailDialogComponent } from 'app/layout/common/dialogs/plan-detail
 export class PlanOptionsComponent implements OnInit {
 
   headerText: string;
+  plans = [];
 
   constructor(
     public dialog: MatDialog,
     private router: Router,
-  ) { }
+    private _sharedService: SharedService,
+  ) {
+    this.plans = _sharedService.hlbPlans;
+  }
 
   ngOnInit(): void {
   }
 
-  openDialog(name: string): void {
+  openDialog(item): void {
     const dialogRef = this.dialog.open(PlanDetailDialogComponent, {
       maxWidth: '90vw',
       width: '90%',
       data: {
-        name,
+        item,
       },
     });
 
@@ -33,7 +38,7 @@ export class PlanOptionsComponent implements OnInit {
       console.log('Dialog result: ', result);
 
       if (result) {
-        this.router.navigate(['/add-plan']);
+        this.router.navigate(['/add-plan'], {state: {data: item}});
       }
 
     });

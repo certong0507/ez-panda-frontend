@@ -1,10 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 
-export interface DialogData {
-    name: string;
-}
 
 @Component({
     selector: 'plan-detail-dialog',
@@ -12,12 +8,11 @@ export interface DialogData {
 })
 export class PlanDetailDialogComponent {
     formFieldHelpers: string[] = [''];
-    data: DialogData;
+    data: any;
 
     constructor(
         public dialogRef: MatDialogRef<PlanDetailDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public inputData: DialogData,
-        private router: Router,
+        @Inject(MAT_DIALOG_DATA) public inputData,
     ) {
         this.data = inputData;
     }
@@ -30,9 +25,4 @@ export class PlanDetailDialogComponent {
         return this.formFieldHelpers.join(' ');
     }
 
-    // routeToAddPlan(): void {
-    //     this.dialogRef.close();
-
-    // //     this.router.navigate(['/add-plan'], { state: { id: 'signup success', } });
-    // }
 }
