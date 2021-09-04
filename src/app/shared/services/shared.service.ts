@@ -57,7 +57,6 @@ export class SharedService {
       amazing grasslands.`,
     },
   ];
-  userRole: string = 'parent';
 
   constructor(
     private http: HttpClient,
