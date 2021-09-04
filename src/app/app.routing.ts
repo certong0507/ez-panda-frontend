@@ -80,6 +80,6 @@ export const appRoutes: Route[] = [
             {path: 'plan-listing', loadChildren: () => import('app/modules/plan/plan-listing/plan-listing.module').then(m => m.PlanListingModule)},
             {path: 'plan-options', loadChildren: () => import('app/modules/plan/plan-options/plan-options.module').then(m => m.PlanOptionsModule)},
             {path: 'add-plan', loadChildren: () => import('app/modules/plan/add-plan/add-plan.module').then(m => m.AddPlanModule)},
-        ] 
+        ]
     }
 ];

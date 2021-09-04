@@ -42,7 +42,7 @@
 
                     <mat-form-field class="w-full">
                         <mat-label>Description</mat-label>
-                        <input id="description" matInput [formControlName]="'description'" class="text-black" />
+                        <textarea id="description" matInput [formControlName]="'description'" class="text-black" > </textarea>
                         <mat-error *ngIf="form.get('description').hasError('required')">
                             Description is required
                         </mat-error>

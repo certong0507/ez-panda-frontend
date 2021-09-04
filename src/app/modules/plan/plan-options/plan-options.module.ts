@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FuseCardModule } from '@fuse/components/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { PlanDetailDialogComponent } from 'app/layout/common/dialogs/plan-detail-dialog/plan-detail-dialog.component';
 
 const planOptionsRoutes: Route[] = [
   {
@@ -16,7 +17,7 @@ const planOptionsRoutes: Route[] = [
 ];
 
 @NgModule({
-  declarations: [PlanOptionsComponent],
+  declarations: [PlanOptionsComponent, PlanDetailDialogComponent],
   imports: [
     RouterModule.forChild(planOptionsRoutes),
     CommonModule,

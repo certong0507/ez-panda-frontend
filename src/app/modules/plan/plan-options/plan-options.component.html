@@ -1,5 +1,7 @@
 <div class="flex flex-col flex-auto min-w-0">
 
+    <app-with-back-header [headerText]='headerText'></app-with-back-header>
+
     <div class="flex-auto p-6 sm:p-10">
 
         <div class="rounded-2xl">
@@ -8,7 +10,26 @@
                 <mat-label>HLB Plan</mat-label>
             </div>
 
-         
+            <div class="flex flex-col pb-4">
+                <fuse-card class="flex flex-col max-w-80 w-full filter-article ng-tns-c184-229 ng-star-inserted">
+                    <div class="m-8 mb-4 ng-tns-c184-229 ng-star-inserted">
+                        
+                        <div class="text-2xl font-semibold leading-tight">Plan Budget</div>
+
+                        <div class="mt-3 -mx-3">
+                            <button mat-button=""  (click)="openDialog('Edwards')"
+                                class="mat-focus-indicator px-3 mat-button mat-button-base mat-primary" tabindex="0">
+                                <span class="mat-button-wrapper"> View </span>
+                                <span matripple="" class="mat-ripple mat-button-ripple"></span>
+                                <span class="mat-button-focus-overlay"></span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </fuse-card>
+
+            </div>
 
         </div>
 
