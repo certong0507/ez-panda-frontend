@@ -1,16 +1,8 @@
-<h2 mat-dialog-title>New User</h2>
-<form
-    class="flex flex-col px-5 pt-6 pb-8 bg-card shadow rounded overflow-hidden"
->
+<h2 mat-dialog-title>New Transfer for {{ data.name }}</h2>
+<form class="flex flex-col px-5 pt-6 pb-8">
     <div class="flex flex-col gt-xs:flex-row gt-xs:items-start">
-        <div class="gt-xs:max-w-80 gt-xs:pr-12">
-            <p class="text-lg font-medium">New Transfer</p>
-            <p class="text-secondary mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-        </div>
         <div class="flex-auto">
-            <div class="flex">
+            <!-- <div class="flex">
                 <mat-form-field
                     [ngClass]="formFieldHelpers"
                     class="flex-auto gt-xs:pr-3"
@@ -30,7 +22,7 @@
                         [svgIcon]="'heroicons_solid:user'"
                     ></mat-icon>
                 </mat-form-field>
-            </div>
+            </div> -->
             <div class="flex">
                 <mat-form-field class="flex-auto">
                     <mat-label>Amount</mat-label>
@@ -41,30 +33,6 @@
                         [svgIcon]="'heroicons_solid:currency-dollar'"
                     ></mat-icon>
                 </mat-form-field>
-            </div>
-
-            <div class="mb-1.5">
-                <mat-label>Recurring Transfer</mat-label>
-                <div class="flex">
-                    <mat-radio-group
-                        class="flex"
-                        [color]="'primary'"
-                        [value]="'just-good'"
-                    >
-                        <mat-radio-button class="mb-2 mr-1.5" [value]="'none'">
-                            None
-                        </mat-radio-button>
-                        <mat-radio-button
-                            class="mb-2 mr-1.5"
-                            [value]="'weekly'"
-                        >
-                            Weekly
-                        </mat-radio-button>
-                        <mat-radio-button [value]="'monthly'">
-                            Monthly
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </div>
             </div>
         </div>
     </div>

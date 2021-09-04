@@ -11,8 +11,11 @@ import { FuseCardModule } from '@fuse/components/card';
 import { ExampleComponent } from 'app/modules/admin/example/example.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 import { financeRoutes } from 'app/modules/admin/example/finance.routing';
 import { UserDetailsDialog } from 'app/layout/common/dialogs/user-details-dialog/user-details-dialog.component';
+import { TransactionDialog } from 'app/layout/common/dialogs/transaction-dialog/transaction-dialog.component';
 
 const exampleRoutes: Route[] = [
     {
@@ -22,7 +25,7 @@ const exampleRoutes: Route[] = [
 ];
 
 @NgModule({
-    declarations: [ExampleComponent, UserDetailsDialog],
+    declarations: [ExampleComponent, UserDetailsDialog, TransactionDialog],
     imports: [
         RouterModule.forChild(financeRoutes),
         MatMenuModule,
@@ -34,7 +37,9 @@ const exampleRoutes: Route[] = [
         MatFormFieldModule,
         MatTableModule,
         MatInputModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        MatRadioModule,
+        MatSelectModule
     ],
 })
 export class ExampleModule {}

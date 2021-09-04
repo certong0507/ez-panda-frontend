@@ -1,14 +1,30 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface DialogData {
+    name: String;
+}
 
 @Component({
-    selector: 'user-details-dialog',
-    templateUrl: './user-details-dialog.component.html',
+    selector: 'transaction-dialog',
+    templateUrl: './transaction-dialog.component.html',
 })
-export class UserDetailsDialog {
-    constructor(public dialogRef: MatDialogRef<UserDetailsDialog>) {}
+export class TransactionDialog {
+    formFieldHelpers: string[] = [''];
+    data: DialogData;
+
+    constructor(
+        public dialogRef: MatDialogRef<TransactionDialog>,
+        @Inject(MAT_DIALOG_DATA) public inputData: DialogData
+    ) {
+        this.data = inputData;
+    }
 
     close(): void {
         this.dialogRef.close();
+    }
+
+    getFormFieldHelpersAsString(): string {
+        return this.formFieldHelpers.join(' ');
     }
 }
