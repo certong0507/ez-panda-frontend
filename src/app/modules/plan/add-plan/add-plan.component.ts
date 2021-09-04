@@ -35,6 +35,7 @@ export class AddPlanComponent implements OnInit {
 
     if (data) {
       this.form.patchValue({
+        plan: data.plan,
         description: data.description,
       });
     }
