@@ -38,6 +38,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link : '/mission-reward'
     },
     {
+        id   : 'learning_course',
+        title: 'Learning Course',
+        type : 'basic',
+        icon : 'heroicons_outline:book-open',
+        link : '/courses'
+    },
+    {
         id   : 'sign_out',
         title: 'Sign Out',
         type : 'basic',
