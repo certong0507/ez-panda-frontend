@@ -11,7 +11,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
     {
         id   : 'manage_wallet',
-        title: 'Manage Wallets',
+        title: 'Manage Users',
         type : 'basic',
         icon : 'heroicons_outline:user',
         link : '/manage-wallet'

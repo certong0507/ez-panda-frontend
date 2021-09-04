@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>New User</h2>
+<form class="flex flex-col px-5 pt-6 pb-8 overflow-hidden">
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput [placeholder]="'username'" />
+        <mat-icon
+            class="icon-size-5"
+            matPrefix
+            [svgIcon]="'heroicons_solid:user-circle'"
+        ></mat-icon>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Mobile No.</mat-label>
+        <input matInput [placeholder]="'phone'" />
+        <mat-icon
+            class="icon-size-5"
+            matPrefix
+            [svgIcon]="'heroicons_solid:phone'"
+        ></mat-icon>
+    </mat-form-field>
+    <button class="px-6" mat-flat-button [color]="'accent'">Add</button>
+</form>

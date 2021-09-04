@@ -5,25 +5,24 @@ import { MatMenuModule } from '@angular/material/menu';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { SharedModule } from 'app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FuseCardModule } from '@fuse/components/card';
-import { ExampleComponent } from 'app/modules/admin/example/example.component';
-import { MatInputModule } from '@angular/material/input';
-import { financeRoutes } from 'app/modules/admin/example/finance.routing';
 import { UserDetailsDialog } from 'app/layout/common/dialogs/user-details-dialog/user-details-dialog.component';
 
 const exampleRoutes: Route[] = [
     {
         path: '',
-        component: ExampleComponent,
+        component: UserDetailsDialog,
     },
 ];
 
 @NgModule({
-    declarations: [ExampleComponent, UserDetailsDialog],
+    declarations: [UserDetailsDialog],
     imports: [
-        RouterModule.forChild(financeRoutes),
+        RouterModule.forChild(exampleRoutes),
         MatMenuModule,
         MatIconModule,
         NgApexchartsModule,
@@ -32,6 +31,7 @@ const exampleRoutes: Route[] = [
         MatButtonModule,
         MatFormFieldModule,
         MatTableModule,
+        MatDialogModule,
         MatInputModule
     ],
 })

@@ -12,8 +12,10 @@ import { MatSort } from '@angular/material/sort';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
 import { FinanceService } from 'app/modules/admin/example/finance.service';
+import { UserDetailsDialog } from 'app/layout/common/dialogs/user-details-dialog/user-details-dialog.component';
 
 @Component({
     selector: 'example',
@@ -42,7 +44,8 @@ export class ExampleComponent {
      */
     constructor(
         private _financeService: FinanceService,
-        private _fuseConfirmationService: FuseConfirmationService
+        private _fuseConfirmationService: FuseConfirmationService,
+        public dialog: MatDialog
     ) {}
 
     ngOnInit(): void {
@@ -140,12 +143,21 @@ export class ExampleComponent {
     }
 
     openDialog(): void {
-        // Open the dialog and save the reference of it
-        const dialogRef = this._fuseConfirmationService.open();
-
-        // Subscribe to afterClosed from the dialog reference
-        dialogRef.afterClosed().subscribe((result) => {
-            console.log(result);
+        const dialogRef = this.dialog.open(UserDetailsDialog, {
+            maxWidth: '90vw',
+            width: '90%'
         });
+
+        dialogRef.afterClosed().subscribe((result) => {
+            console.log(`Dialog result: `, result);
+        });
+
+        // // Open the dialog and save the reference of it
+        // const dialogRef = this._fuseConfirmationService.open();
+
+        // // Subscribe to afterClosed from the dialog reference
+        // dialogRef.afterClosed().subscribe((result) => {
+        //     console.log(result);
+        // });
     }
 }
