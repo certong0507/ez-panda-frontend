@@ -20,7 +20,7 @@
                         <div class="mt-4">Duration: {{ item.duration }} </div>
                         <br>
                     </div>
-                    <button class="px-6" mat-flat-button [color]="'accent'">
+                    <button class="px-6" mat-flat-button [color]="'accent'" (click)="openDialog(item)">
                         {{button}}
                     </button>
                 </fuse-card>
