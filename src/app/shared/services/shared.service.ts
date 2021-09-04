@@ -24,37 +24,35 @@ export class SharedService {
   plans = [
     {
       plan: 'Plan Budget',
-      duration: 10,
+      duration: '12 weeks',
       reward: 'KFC Voucher',
-      description: `From rocky mountains to crystal clear lakes, these are the places you must
-      see and enjoy. In summers you can bring your food and have a little picnic on top of the
-      amazing grasslands.`,
+      description: `Budget plan which suitable for all kind level of people
+      `,
     },
     {
-      plan: 'Plan Premium',
-      duration: 10,
+      plan: 'Premium Savings Account',
+      duration: '10 weeks',
       reward: '',
-      description: `Rocky mountains to crystal clear lakes, these are the places you must
-      see and enjoy. In summers you can bring your food and have a little picnic on top of the
-      amazing grasslands.`,
+      description: `First of all this account comes with daily interest rates and 
+      flexible withdrawals in case you need to have easier access to your cash.`,
     },
   ];
   hlbPlans = [
     {
-      plan: 'Plan Budget',
-      duration: 10,
+      plan: 'HLA Wealth Booster Plus',
+      duration: '4 weeks',
       reward: 'KFC Voucher',
-      description: `From rocky mountains to crystal clear lakes, these are the places you must
-      see and enjoy. In summers you can bring your food and have a little picnic on top of the
-      amazing grasslands.`,
+      description: `Enjoy 5% additional premium allocation on the premium payable for 
+      policy year 10 and 15 when you choose a premium payment term of 15 years, 
+      while a premium payment term of 20 years gives you 5% additional premium allocation on 
+      the premium payable for policy year 10, 15 and 20.`,
     },
     {
-      plan: 'Plan Premium',
-      duration: 10,
+      plan: 'Premium Savings Account',
+      duration: '10 weeks',
       reward: '',
-      description: `Rocky mountains to crystal clear lakes, these are the places you must
-      see and enjoy. In summers you can bring your food and have a little picnic on top of the
-      amazing grasslands.`,
+      description: `First of all this account comes with daily interest rates and 
+      flexible withdrawals in case you need to have easier access to your cash.`,
     },
   ];
 
