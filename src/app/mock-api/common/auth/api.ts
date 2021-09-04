@@ -66,17 +66,31 @@ export class AuthMockApi
             .onPost('api/auth/sign-in', 1500)
             .reply(({request}) => {
 
-                // Sign in successful
-                if ( request.body.email === 'hughes.brian@company.com' && request.body.password === 'admin' )
-                {
-                    return [
-                        200,
-                        {
-                            user       : cloneDeep(this._user),
-                            accessToken: this._generateJWTToken(),
-                            tokenType  : 'bearer'
-                        }
-                    ];
+                // eslint-disable-next-line @typescript-eslint/prefer-for-of
+                for (let i = 0; i < this._user.length; i++) {
+                    // Sign in successful
+                    // Parent
+                    if (request.body.email === this._user[i].email && request.body.password === 'admin') {
+                        return [
+                            200,
+                            {
+                                user: cloneDeep(this._user[i]),
+                                accessToken: this._generateJWTToken(),
+                                tokenType: 'bearer'
+                            }
+                        ];
+                    }
+                    // Child
+                    else if (request.body.email === this._user[i].email && request.body.password === 'admin') {
+                        return [
+                            200,
+                            {
+                                user: cloneDeep(this._user[i]),
+                                accessToken: this._generateJWTToken(),
+                                tokenType: 'bearer'
+                            }
+                        ];
+                    }
                 }
 
                 // Invalid credentials

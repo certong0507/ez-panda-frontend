@@ -158,7 +158,7 @@
             <div class="text-xs">Home</div>
         </div>
 
-        <div class="text-center"  [routerLink]="['/plan-listing']">
+        <div *ngIf="user.userRole==='parent'" class="text-center"  [routerLink]="['/plan-listing']">
             <mat-icon
                 color="accent"
                 svgIcon="heroicons_outline:user"

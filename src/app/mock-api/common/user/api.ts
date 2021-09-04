@@ -33,7 +33,23 @@ export class UserMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/common/user')
-            .reply(() => [200, cloneDeep(this._user)]);
+            // eslint-disable-next-line arrow-body-style
+            .reply(() => {
+                const user1 = localStorage.getItem('user');
+
+                if (user1) {
+                    return [
+                        200,
+                        cloneDeep(JSON.parse(user1))
+                    ];
+                }
+
+                return [
+                    200,
+                    cloneDeep(this._user[0])
+                ];
+            }
+        );
 
         // -----------------------------------------------------------------------------------------------------
         // @ User - PATCH

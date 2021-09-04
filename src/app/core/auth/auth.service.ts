@@ -90,6 +90,8 @@ export class AuthService
                 // Store the user on the user service
                 this._userService.user = response.user;
 
+                localStorage.setItem('user', JSON.stringify(response.user));
+
                 // Return a new observable with the response
                 return of(response);
             })
@@ -134,6 +136,8 @@ export class AuthService
     {
         // Remove the access token from the local storage
         localStorage.removeItem('accessToken');
+
+        localStorage.removeItem('user');
 
         // Set the authenticated flag to false
         this._authenticated = false;
