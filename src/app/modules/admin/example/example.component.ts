@@ -1,3 +1,7 @@
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @angular-eslint/use-lifecycle-interface */
+/* eslint-disable @typescript-eslint/member-ordering */
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
@@ -26,6 +30,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
 import { FinanceService } from 'app/modules/admin/example/finance.service';
 import { UserDetailsDialog } from 'app/layout/common/dialogs/user-details-dialog/user-details-dialog.component';
+import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
 
 export type ChartOptions = {
     series: ApexAxisChartSeries;
@@ -68,7 +73,8 @@ export class ExampleComponent {
     constructor(
         private _financeService: FinanceService,
         private _fuseConfirmationService: FuseConfirmationService,
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        private _fuseNavigationService: FuseNavigationService
     ) {}
 
     ngOnInit(): void {
@@ -143,7 +149,7 @@ export class ExampleComponent {
             },
             dataLabels: {
                 enabled: true,
-                formatter: function (val) {
+                formatter: function(val) {
                     return val + '%';
                 },
                 offsetY: -20,
@@ -204,7 +210,7 @@ export class ExampleComponent {
                 },
                 labels: {
                     show: false,
-                    formatter: function (val) {
+                    formatter: function(val) {
                         return val + '%';
                     },
                 },
@@ -228,7 +234,7 @@ export class ExampleComponent {
         });
 
         dialogRef.afterClosed().subscribe((result) => {
-            console.log(`Dialog result: `, result);
+            console.log('Dialog result: ', result);
         });
 
         // // Open the dialog and save the reference of it
@@ -238,5 +244,17 @@ export class ExampleComponent {
         // dialogRef.afterClosed().subscribe((result) => {
         //     console.log(result);
         // });
+    }
+
+    toggleNavigation(name: string): void
+    {
+        // Get the navigation
+        const navigation = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(name);
+
+        if ( navigation )
+        {
+            // Toggle the opened status
+            navigation.toggle();
+        }
     }
 }
