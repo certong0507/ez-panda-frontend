@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from 'app/shared/services/shared.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-mission',
-  templateUrl: './add-mission.component.html',
-  styleUrls: ['./add-mission.component.scss']
+  selector: 'app-add-mission-reward',
+  templateUrl: './add-mission-reward.component.html',
+  styleUrls: ['./add-mission-reward.component.scss']
 })
-export class AddMissionComponent implements OnInit {
+export class AddMissionRewardComponent implements OnInit {
   form: FormGroup;
   headerText: string;
-  message: string = 'Mission added successfully!';
+  message: string = 'Reward added successfully!';
   action: string = 'Dismiss';
 
   constructor(
@@ -20,28 +20,23 @@ export class AddMissionComponent implements OnInit {
     private _sharedService: SharedService,
     public snackBar: MatSnackBar,
     private router: Router,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.form = this._formBuilder.group({
-      mission: ['', [Validators.required]],
-      target: ['', Validators.required],
+      reward: ['', [Validators.required]],
       credit: ['', Validators.required],
-      description: ['', Validators.required],
-      // rememberMe: ['']
     });
   }
 
   onSave(): void {
-    const mission = {
-      mission: this.form.value.mission,
-      target: this.form.value.target,
+    const reward = {
+      reward: this.form.value.reward,
       credit: this.form.value.credit,
-      description: this.form.value.description,
     };
 
     if (this.form.valid) {
-      this._sharedService.mission.push(mission);
+      this._sharedService.reward.push(reward);
 
       this.snackBar.open(this.message);
 
@@ -50,7 +45,7 @@ export class AddMissionComponent implements OnInit {
         // panelClass: ['blue-snackbar']
       });
 
-      this.router.navigate(['/mission']);
+      this.router.navigate(['/mission-reward']);
     }
 
   }

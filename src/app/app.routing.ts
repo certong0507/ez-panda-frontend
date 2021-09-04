@@ -83,7 +83,8 @@ export const appRoutes: Route[] = [
             {path: 'add-mission', loadChildren: () => import('app/modules/mission/add-mission/add-mission.module').then(m => m.AddMissionModule)},
             {path: 'mission-reward', loadChildren: () => import('app/modules/mission/mission-reward/mission-reward.module').then(m => m.MissionRewardModule)},
             {path: 'courses', loadChildren: () => import('app/modules/admin/course/course-listing/course-listing.module').then(m => m.CourseListingModule)},
-            {path: 'course-details', loadChildren: () => import('app/modules/admin/course/course-details/course-details.module').then(m => m.CourseDetailsModule)},
+            {path: 'course-details', loadChildren: () => import('app/modules/admin/course/course-details/course-details.module').then(m => m.CourseDetailsModule)}, 
+            {path: 'add-reward', loadChildren: () => import('app/modules/mission/add-mission-reward/add-mission-reward.module').then(m => m.AddMissionRewardModule)},
         ] 
     }
 ];
