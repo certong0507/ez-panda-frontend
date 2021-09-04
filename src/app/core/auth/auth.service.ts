@@ -4,10 +4,12 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
+import { environment } from 'environments/environment';
 
 @Injectable()
 export class AuthService
 {
+    serverUrl = environment.baseUrl;
     private _authenticated: boolean = false;
 
     /**
@@ -73,6 +75,8 @@ export class AuthService
         {
             return throwError('User is already logged in.');
         }
+
+        const url = this.serverUrl + '/api/authenticate/login11';
 
         return this._httpClient.post('api/auth/sign-in', credentials).pipe(
             switchMap((response: any) => {
