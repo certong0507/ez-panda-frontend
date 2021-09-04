@@ -1,11 +1,6 @@
 <!-- Navigation -->
-<fuse-vertical-navigation
-    class="dark bg-gray-900 print:hidden"
-    [mode]="isScreenSmall ? 'over' : 'side'"
-    [name]="'mainNavigation'"
-    [navigation]="navigation.default"
-    [opened]="!isScreenSmall"
->
+<fuse-vertical-navigation class="dark bg-gray-900 print:hidden" [mode]="isScreenSmall ? 'over' : 'side'"
+    [name]="'mainNavigation'" [navigation]="navigation.default" [opened]="!isScreenSmall">
     <!-- Navigation header hook -->
     <ng-container fuseVerticalNavigationContentHeader>
         <div class="flex items-center w-full p-4 pl-6">
@@ -35,20 +30,17 @@
                     [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
             </div> -->
             <div class="flex flex-col items-center justify-center w-full mt-6">
-                <div
-                    class="
+                <div class="
                         w-full
                         whitespace-nowrap
                         overflow-ellipsis overflow-hidden
                         text-center
                         leading-normal
                         font-medium
-                    "
-                >
+                    ">
                     {{ user.name }}
                 </div>
-                <div
-                    class="
+                <div class="
                         w-full
                         mt-0.5
                         whitespace-nowrap
@@ -57,8 +49,7 @@
                         leading-normal
                         font-medium
                         text-secondary
-                    "
-                >
+                    ">
                     {{ user.email }}
                 </div>
             </div>
@@ -66,8 +57,7 @@
     </ng-container>
     <!-- Navigation footer hook -->
     <ng-container fuseVerticalNavigationContentFooter>
-        <div
-            class="
+        <div class="
                 flex flex-0
                 items-center
                 justify-center
@@ -77,8 +67,7 @@
                 mt-2
                 mb-4
                 opacity-12
-            "
-        >
+            ">
             <!-- <img
                 class="max-w-36"
                 src="assets/images/logo/logo-text-on-dark.svg"> -->
@@ -103,13 +92,13 @@
             print:hidden
         "
     > -->
-        <!-- Navigation toggle button -->
-        <!-- <button mat-mini-fab (click)="toggleNavigation('mainNavigation')">
+    <!-- Navigation toggle button -->
+    <!-- <button mat-mini-fab (click)="toggleNavigation('mainNavigation')">
             <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
         </button> -->
-        
-        <!-- Components -->
-        <!-- <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2">
+
+    <!-- Components -->
+    <!-- <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2">
             <languages></languages>
             <fuse-fullscreen class="hidden md:block"></fuse-fullscreen>
             <search [appearance]="'bar'"></search>
@@ -132,8 +121,7 @@
     </div>
 
     <!-- Footer -->
-    <div
-        class="
+    <div class="
             fixed
             bottom-0
             flex flex-0
@@ -148,40 +136,36 @@
             bg-card
             dark:bg-transparent
             print:hidden
-        "
-    >
+        ">
         <div class="text-center" [routerLink]="['/example']">
-            <mat-icon
-                color="accent"
-                svgIcon="heroicons_outline:chart-pie"
-            ></mat-icon>
+            <mat-icon *ngIf="activeRoute === '/example'" color="primary" svgIcon="heroicons_outline:chart-pie">
+            </mat-icon>
+            <mat-icon *ngIf="activeRoute !== '/example'" color="accent" svgIcon="heroicons_outline:chart-pie">
+            </mat-icon>
             <div class="text-xs">Home</div>
         </div>
 
-        <div class="text-center"  [routerLink]="['/plan-listing']">
-            <mat-icon
-                color="accent"
-                svgIcon="heroicons_outline:user"
-            ></mat-icon>
+        <div class="text-center" [routerLink]="['/plan-listing']">
+            <mat-icon *ngIf="activeRoute === '/plan-listing'" color="primary" svgIcon="heroicons_outline:user">
+            </mat-icon>
+            <mat-icon *ngIf="activeRoute !== '/plan-listing'" color="accent" svgIcon="heroicons_outline:user">
+            </mat-icon>
             <div class="text-xs">Plan</div>
         </div>
-        
+
         <div class="text-center" [routerLink]="['/mission']">
-            <mat-icon
-                color="accent"
-                svgIcon="heroicons_outline:gift"
-            ></mat-icon>
+            <mat-icon *ngIf="activeRoute === '/mission'" color="primary" svgIcon="heroicons_outline:gift"></mat-icon>
+            <mat-icon *ngIf="activeRoute !== '/mission'" color="accent" svgIcon="heroicons_outline:gift"></mat-icon>
             <div class="text-xs">Mission</div>
         </div>
 
-        <div class="text-center"[routerLink]="['/courses']">
-            <mat-icon
-                color="accent"
-                svgIcon="heroicons_outline:book-open"
-            ></mat-icon>
+        <div class="text-center" [routerLink]="['/courses']">
+            <mat-icon *ngIf="activeRoute === '/courses'" color="primary" svgIcon="heroicons_outline:book-open">
+            </mat-icon>
+            <mat-icon *ngIf="activeRoute !== '/courses'" color="accent" svgIcon="heroicons_outline:book-open">
+            </mat-icon>
             <div class="text-xs">Learn</div>
         </div>
-        
     </div>
 </div>
 
