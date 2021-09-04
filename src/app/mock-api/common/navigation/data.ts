@@ -21,7 +21,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Manage Missions',
         type : 'basic',
         icon : 'heroicons_outline:gift',
-        link : '/manage-award'
+        link : '/mission'
     },
     {
         id   : 'tranfer',
@@ -29,6 +29,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:switch-horizontal',
         link : '/transfer'
+    },
+    {
+        id   : 'mission_reward',
+        title: 'Redeem',
+        type : 'basic',
+        icon : 'heroicons_outline:switch-horizontal',
+        link : '/mission-reward'
     },
     {
         id   : 'sign_out',

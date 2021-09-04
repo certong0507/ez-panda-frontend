@@ -1,0 +1,75 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <div class="flex-auto p-6 sm:p-10">
+
+        <div class="rounded-2xl">
+
+            <div class="font-medium">
+                <mat-label>Add Mission</mat-label>
+            </div>
+
+            <form novalidate="" [formGroup]="form"
+                class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow overflow-hidden ng-untouched ng-pristine ng-valid">
+                <div class="flex flex-col gt-xs:flex-row">
+                    <mat-form-field class="w-full">
+                        <mat-label>Mission</mat-label>
+                        <input id="mission" matInput [formControlName]="'mission'" class="text-black" />
+                        <mat-error *ngIf="form.get('mission').hasError('required')">
+                            Mission is required
+                        </mat-error>
+
+                    </mat-form-field>
+
+                    <mat-form-field class="w-full">
+                        <mat-label>Target</mat-label>
+                        <input id="target" matInput [formControlName]="'target'" class="text-black" />
+                        <mat-error *ngIf="form.get('target').hasError('required')">
+                            Target is required
+                        </mat-error>
+
+                    </mat-form-field>
+
+                    <mat-form-field class="w-full">
+                        <mat-label>Rewards</mat-label>
+                        <input id="reward" matInput [formControlName]="'reward'" class="text-black" />
+                        <mat-error *ngIf="form.get('reward').hasError('required')">
+                            Rewards is required
+                        </mat-error>
+
+                    </mat-form-field>
+
+                    <mat-form-field class="w-full">
+                        <mat-label>Credits</mat-label>
+                        <input id="credit" matInput [formControlName]="'credit'" class="text-black" />
+                        <mat-error *ngIf="form.get('credit').hasError('required')">
+                            Credits is required
+                        </mat-error>
+
+                    </mat-form-field>
+
+                    <mat-form-field class="w-full">
+                        <mat-label>Description</mat-label>
+                        <input id="description" matInput [formControlName]="'description'" class="text-black" />
+                        <mat-error *ngIf="form.get('description').hasError('required')">
+                            Description is required
+                        </mat-error>
+
+                    </mat-form-field>
+
+                    <!-- Save button -->
+                    <button class="fuse-mat-button-large w-full mt-6" mat-flat-button [color]="'accent'"
+                        (click)="onSave()">
+                        <span *ngIf="!form.disabled"> Add </span>
+                        <mat-progress-spinner *ngIf="form.disabled" [diameter]="24" [mode]="'indeterminate'">
+                        </mat-progress-spinner>
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
