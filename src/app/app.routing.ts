@@ -76,10 +76,12 @@ export const appRoutes: Route[] = [
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
             {path: 'manage-wallet', loadChildren: () => import('app/modules/admin/manage-wallet/manage-wallet.module').then(m => m.ManageWalletModule)},
             {path: 'transfer', loadChildren: () => import('app/modules/admin/transfer/transfer.module').then(m => m.TransferModule)},
-            {path: 'manage-award', loadChildren: () => import('app/modules/admin/manage-award/manage-award.module').then(m => m.ManageAwardModule)},
+            {path: 'mission', loadChildren: () => import('app/modules/mission/mission-list/mission-list.module').then(m => m.MissionListModule)},
             {path: 'plan-listing', loadChildren: () => import('app/modules/plan/plan-listing/plan-listing.module').then(m => m.PlanListingModule)},
             {path: 'plan-options', loadChildren: () => import('app/modules/plan/plan-options/plan-options.module').then(m => m.PlanOptionsModule)},
             {path: 'add-plan', loadChildren: () => import('app/modules/plan/add-plan/add-plan.module').then(m => m.AddPlanModule)},
-        ]
+            {path: 'add-mission', loadChildren: () => import('app/modules/mission/add-mission/add-mission.module').then(m => m.AddMissionModule)},
+            {path: 'mission-reward', loadChildren: () => import('app/modules/mission/mission-reward/mission-reward.module').then(m => m.MissionRewardModule)},
+        ] 
     }
 ];
