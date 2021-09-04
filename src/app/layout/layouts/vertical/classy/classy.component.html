@@ -4,7 +4,8 @@
     [mode]="isScreenSmall ? 'over' : 'side'"
     [name]="'mainNavigation'"
     [navigation]="navigation.default"
-    [opened]="!isScreenSmall">
+    [opened]="!isScreenSmall"
+>
     <!-- Navigation header hook -->
     <ng-container fuseVerticalNavigationContentHeader>
         <div class="flex items-center w-full p-4 pl-6">
@@ -34,18 +35,50 @@
                     [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
             </div> -->
             <div class="flex flex-col items-center justify-center w-full mt-6">
-                <div class="w-full whitespace-nowrap overflow-ellipsis overflow-hidden text-center leading-normal font-medium">
-                    {{user.name}}
+                <div
+                    class="
+                        w-full
+                        whitespace-nowrap
+                        overflow-ellipsis overflow-hidden
+                        text-center
+                        leading-normal
+                        font-medium
+                    "
+                >
+                    {{ user.name }}
                 </div>
-                <div class="w-full mt-0.5 whitespace-nowrap overflow-ellipsis overflow-hidden text-center text-md leading-normal font-medium text-secondary">
-                    {{user.email}}
+                <div
+                    class="
+                        w-full
+                        mt-0.5
+                        whitespace-nowrap
+                        overflow-ellipsis overflow-hidden
+                        text-center text-md
+                        leading-normal
+                        font-medium
+                        text-secondary
+                    "
+                >
+                    {{ user.email }}
                 </div>
             </div>
         </div>
     </ng-container>
     <!-- Navigation footer hook -->
     <ng-container fuseVerticalNavigationContentFooter>
-        <div class="flex flex-0 items-center justify-center h-16 pr-6 pl-2 mt-2 mb-4 opacity-12">
+        <div
+            class="
+                flex flex-0
+                items-center
+                justify-center
+                h-16
+                pr-6
+                pl-2
+                mt-2
+                mb-4
+                opacity-12
+            "
+        >
             <!-- <img
                 class="max-w-36"
                 src="assets/images/logo/logo-text-on-dark.svg"> -->
@@ -55,13 +88,23 @@
 
 <!-- Wrapper -->
 <div class="flex flex-col flex-auto w-full min-w-0">
-
     <!-- Header -->
-    <div class="relative flex flex-0 items-center w-full h-16 px-4 md:px-6 z-49 dark:shadow-none dark:border-b dark:bg-transparent print:hidden">
+    <div
+        class="
+            relative
+            flex flex-0
+            items-center
+            w-full
+            h-16
+            px-4
+            md:px-6
+            z-49
+            dark:shadow-none dark:border-b dark:bg-transparent
+            print:hidden
+        "
+    >
         <!-- Navigation toggle button -->
-        <button
-            mat-mini-fab
-            (click)="toggleNavigation('mainNavigation')">
+        <button mat-mini-fab (click)="toggleNavigation('mainNavigation')">
             <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
         </button>
         <!-- Components -->
@@ -88,10 +131,60 @@
     </div>
 
     <!-- Footer -->
-    <!--<div class="relative flex flex-0 items-center justify-start w-full h-14 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
-        <span class="font-medium text-secondary">Fuse &copy; {{currentYear}}</span>
-    </div>-->
-
+    <div
+        class="
+            fixed
+            bottom-0
+            flex flex-0
+            items-center
+            justify-around
+            w-full
+            h-14
+            px-4
+            md:px-6
+            z-49
+            border-t
+            bg-card
+            dark:bg-transparent
+            print:hidden
+        "
+    >
+        <div class="text-center">
+            <mat-icon
+                color="accent"
+                svgIcon="heroicons_outline:chart-pie"
+            ></mat-icon>
+            <div class="text-xs">Dashboard</div>
+        </div>
+        <div class="text-center">
+            <mat-icon
+                color="accent"
+                svgIcon="heroicons_outline:user"
+            ></mat-icon>
+            <div class="text-xs">Plan</div>
+        </div>
+        <div class="text-center">
+            <mat-icon
+                color="accent"
+                svgIcon="heroicons_outline:gift"
+            ></mat-icon>
+            <div class="text-xs">Mission</div>
+        </div>
+        <div class="text-center">
+            <mat-icon
+                color="accent"
+                svgIcon="heroicons_outline:switch-horizontal"
+            ></mat-icon>
+            <div class="text-xs">Learning</div>
+        </div>
+        <div class="text-center">
+            <mat-icon
+                color="accent"
+                svgIcon="heroicons_outline:user"
+            ></mat-icon>
+            <div class="text-xs">Subscription</div>
+        </div>
+    </div>
 </div>
 
 <!-- Quick chat -->

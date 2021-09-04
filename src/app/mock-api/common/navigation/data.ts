@@ -18,7 +18,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
     {
         id   : 'manage_award',
-        title: 'Manage Awards',
+        title: 'Manage Missions',
         type : 'basic',
         icon : 'heroicons_outline:gift',
         link : '/manage-award'
