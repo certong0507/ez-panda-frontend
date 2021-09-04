@@ -1,30 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Route, RouterModule } from '@angular/router';
-import { PlanOptionsComponent } from './plan-options.component';
+import { AddPlanComponent } from './add-plan.component';
 import { SharedModule } from 'app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FuseCardModule } from '@fuse/components/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
-const planOptionsRoutes: Route[] = [
+const addPlanRoutes: Route[] = [
   {
       path: '',
-      component: PlanOptionsComponent,
+      component: AddPlanComponent,
   },
 ];
 
 @NgModule({
-  declarations: [PlanOptionsComponent],
+  declarations: [AddPlanComponent],
   imports: [
-    RouterModule.forChild(planOptionsRoutes),
+    RouterModule.forChild(addPlanRoutes),
     CommonModule,
     SharedModule,
     MatFormFieldModule,
     FuseCardModule,
     MatIconModule,
     MatButtonModule,
+    MatInputModule,
   ]
 })
-export class PlanOptionsModule { }
+export class AddPlanModule { }
