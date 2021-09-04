@@ -1,51 +1,11 @@
 <div class="flex flex-col flex-auto min-w-0">
+    <app-with-back-header [headerText]='headerText'></app-with-back-header>
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
         <!-- CONTENT GOES HERE -->
         <div class="rounded-2xl">
             <p class="text-lg font-medium">Redeem (Your Current Credits: 100)</p>
-            <!-- <form class="
-                    flex flex-col
-                    px-5
-                    pt-6
-                    pb-8
-                    bg-card
-                    shadow
-                    rounded
-                    overflow-hidden
-                ">
-                <div class="flex flex-col gt-xs:flex-row gt-xs:items-start">
-                    <div class="gt-xs:max-w-80 gt-xs:pr-12">
-                        <p class="text-lg font-medium">New Mission</p>
-                        <p class="text-secondary mb-6">
-                            Donec mollis dignissim iaculis. Fusce lacus metus,
-                            placerat ac fringilla id, porta sed tortor.
-                        </p>
-                    </div>
-                    <div class="flex-auto min-w-64">
-                        <div class="flex">
-                            <mat-form-field class="flex-auto">
-                                <mat-label>Mission Name</mat-label>
-                                <input matInput [placeholder]="'name'" />
-                                <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:gift'"></mat-icon>
-                            </mat-form-field>
-                        </div>
-                        <div class="flex">
-                            <mat-form-field class="flex-auto">
-                                <mat-label>Reward</mat-label>
-                                <input matInput [placeholder]="'reward'" />
-                                <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:currency-dollar'">
-                                </mat-icon>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="px-6" mat-flat-button [color]="'accent'">
-                    Add
-                </button>
-            </form> -->
-            <div class="
+            <div *ngFor="let item of reward;" class="
                     xl:col-span-2
                     flex flex-col flex-auto
                     bg-card
@@ -63,40 +23,11 @@
                             leading-6
                             truncate
                         ">
-                        KFC Voucher
+                        {{item.reward}}
                     </div>
                     <br>
                     <div class="text-secondary font-medium">
-                        Required Credits: 50 credits
-                    </div>
-                </div>
-                <button class="px-6" mat-flat-button [color]="'accent'">
-                    Redeem
-                </button>
-            </div>
-            <div class="
-                    xl:col-span-2
-                    flex flex-col flex-auto
-                    bg-card
-                    shadow
-                    rounded-2xl
-                    overflow-hidden
-                    mt-5
-                ">
-                <div class="p-6">
-                    <div class="
-                            mr-4
-                            text-lg
-                            font-medium
-                            tracking-tight
-                            leading-6
-                            truncate
-                        ">
-                        2 Hours Game Time!!
-                    </div>
-                    <br>
-                    <div class="text-secondary font-medium">
-                        Required Credits: 40 credits
+                        Required Credits: {{item.credit}} credits
                     </div>
                 </div>
                 <button class="px-6" mat-flat-button [color]="'accent'">
@@ -104,5 +35,16 @@
                 </button>
             </div>
         </div>
+        <button mat-mini-fab="" class="mat-focus-indicator mat-mini-fab mat-button-base bg-primary mat-fab-bottom-right"
+            style="position: fixed; bottom: 75px; right: 25px;" [routerLink]="['/add-reward']">
+            <span class="mat-button-wrapper">
+                <mat-icon role="img" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true">
+                    add
+                </mat-icon>
+            </span>
+
+            <span class="mat-button-focus-overlay"></span>
+
+        </button>
     </div>
 </div>

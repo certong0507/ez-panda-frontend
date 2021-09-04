@@ -4,119 +4,36 @@
         <!-- CONTENT GOES HERE -->
         <div class="rounded-2xl">
             <p class="text-lg font-medium">Mission</p>
-            <!-- <form class="
-                    flex flex-col
-                    px-5
-                    pt-6
-                    pb-8
-                    bg-card
-                    shadow
-                    rounded
-                    overflow-hidden
-                ">
-                <div class="flex flex-col gt-xs:flex-row gt-xs:items-start">
-                    <div class="gt-xs:max-w-80 gt-xs:pr-12">
-                        <p class="text-lg font-medium">New Mission</p>
-                        <p class="text-secondary mb-6">
-                            Donec mollis dignissim iaculis. Fusce lacus metus,
-                            placerat ac fringilla id, porta sed tortor.
-                        </p>
-                    </div>
-                    <div class="flex-auto min-w-64">
-                        <div class="flex">
-                            <mat-form-field class="flex-auto">
-                                <mat-label>Mission Name</mat-label>
-                                <input matInput [placeholder]="'name'" />
-                                <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:gift'"></mat-icon>
-                            </mat-form-field>
-                        </div>
-                        <div class="flex">
-                            <mat-form-field class="flex-auto">
-                                <mat-label>Reward</mat-label>
-                                <input matInput [placeholder]="'reward'" />
-                                <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:currency-dollar'">
-                                </mat-icon>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="px-6" mat-flat-button [color]="'accent'">
-                    Add
-                </button>
-            </form> -->
-            <div class="
-                    xl:col-span-2
-                    flex flex-col flex-auto
-                    bg-card
-                    shadow
-                    rounded-2xl
-                    overflow-hidden
-                    mt-5
-                ">
+            <div *ngFor="let item of mission;" class="xl:col-span-2 flex flex-col flex-auto bg-card shadow rounded-2xl overflow-hidden mt-5">
                 <div class="p-6">
-                    <div class="
-                            mr-4
-                            text-lg
-                            font-medium
-                            tracking-tight
-                            leading-6
-                            truncate
-                        ">
-                        Math B+ and above
+                    <div class="mr-4 text-lg font-medium tracking-tight leading-6 truncate">
+                        {{ item.mission }}
                     </div>
                     <div class="text-secondary font-medium">
-                        If you score B+ and above, 20 credits will be rewarded.
+                        {{ item.description }}
                     </div>
                     <br>
                     <div class="text-secondary font-medium">
-                        Rewards: 20 credits
+                        Target: {{ item.target }}
+                    </div>
+                    <br>
+                    <div class="text-secondary font-medium">
+                        Rewards: {{ item.credit }} credits
                     </div>
                 </div>
                 <button class="px-6" mat-flat-button [color]="'accent'">
                     Mark as Completed
                 </button>
             </div>
-            <div class="
-                    xl:col-span-2
-                    flex flex-col flex-auto
-                    bg-card
-                    shadow
-                    rounded-2xl
-                    overflow-hidden
-                    mt-5
-                ">
-                <div class="p-6">
-                    <div class="
-                            mr-4
-                            text-lg
-                            font-medium
-                            tracking-tight
-                            leading-6
-                            truncate
-                        ">
-                        Ejaan score 8/10!
-                    </div>
-                    <div class="text-secondary font-medium">
-                        Try your best to score above 8, mummy and daddy love you!
-                    </div>
-                    <br>
-                    <div class="text-secondary font-medium">
-                        Rewards: 25 credits
-                    </div>                    
-                </div>
-                <button class="px-6" mat-flat-button [color]="'accent'">
-                    Mark as Completed
-                </button>
-            </div>
-            <button mat-mini-fab="" class="mat-focus-indicator mat-mini-fab mat-button-base bg-primary mat-fab-bottom-right" style="position: fixed; bottom: 75px; right: 25px;" 
-                [routerLink]="['/add-mission']">
+            <button mat-mini-fab=""
+                class="mat-focus-indicator mat-mini-fab mat-button-base bg-primary mat-fab-bottom-right"
+                style="position: fixed; bottom: 75px; right: 25px;" [routerLink]="['/add-mission']">
                 <span class="mat-button-wrapper">
                     <mat-icon role="img" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true">
                         add
                     </mat-icon>
                 </span>
-                
+
                 <span class="mat-button-focus-overlay"></span>
 
             </button>

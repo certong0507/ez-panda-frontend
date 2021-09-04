@@ -55,6 +55,33 @@ export class SharedService {
       flexible withdrawals in case you need to have easier access to your cash.`,
     },
   ];
+  userRole: string = 'parent';
+  
+  mission = [
+    {
+      mission: 'Ejaan score',
+      target: '8/10',
+      credit: 20,
+      description: `Try your best to score 8 and above, mummy and daddy love you!`,
+    },
+    {
+      plan: 'Math exam core',
+      target: 'B+',
+      credit: 25,
+      description: `If you score B+ and above, 20 credits will be rewarded.`,
+    },
+  ];
+
+  reward = [
+    {
+      reward: 'KFC Voucher',
+      credit: 50
+    },
+    {
+      reward: '2 Hours Game Time!!',
+      credit: 40
+    },
+  ];
 
   constructor(
     private http: HttpClient,

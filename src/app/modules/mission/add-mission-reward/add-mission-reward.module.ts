@@ -8,17 +8,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { AddMissionComponent } from 'app/modules/mission/add-mission/add-mission.component';
+import { AddMissionRewardComponent } from 'app/modules/mission/add-mission-reward/add-mission-reward.component';
 
 const exampleRoutes: Route[] = [
     {
         path: '',
-        component: AddMissionComponent,
+        component: AddMissionRewardComponent,
     },
 ];
 
 @NgModule({
-    declarations: [AddMissionComponent],
+    declarations: [AddMissionRewardComponent],
     imports: [
         RouterModule.forChild(exampleRoutes),
         CommonModule,
@@ -31,4 +31,4 @@ const exampleRoutes: Route[] = [
         MatSnackBarModule,
     ],
 })
-export class AddMissionModule {}
+export class AddMissionRewardModule {}
