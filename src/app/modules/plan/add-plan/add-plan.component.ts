@@ -25,7 +25,7 @@ export class AddPlanComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this._formBuilder.group({
-      plan: ['', [Validators.required, Validators.email]],
+      plan: ['', [Validators.required]],
       duration: ['', Validators.required],
       reward: ['', Validators.required],
       description: ['', Validators.required],
@@ -40,16 +40,18 @@ export class AddPlanComponent implements OnInit {
       description: this.form.value.description,
     };
 
-    this._sharedService.plans.push(plan);
+    if (this.form.valid) {
+      this._sharedService.plans.push(plan);
 
-    this.snackBar.open(this.message);
+      this.snackBar.open(this.message);
 
-    this.snackBar.open(this.message, this.action, {
-      duration: 2000,
-      // panelClass: ['blue-snackbar']
-    });
+      this.snackBar.open(this.message, this.action, {
+        duration: 2000,
+        // panelClass: ['blue-snackbar']
+      });
 
-    this.router.navigate(['/plan-listing']);
+      this.router.navigate(['/plan-listing']);
+    }
 
   }
 
