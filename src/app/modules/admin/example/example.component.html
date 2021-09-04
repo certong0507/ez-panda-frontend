@@ -2,8 +2,8 @@
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
         <!-- CONTENT GOES HERE -->
-        <div class="h-400 min-h-400 max-h-400 rounded-2xl">
-            <div
+        <div class="rounded-2xl">
+            <!-- <div
                 style="background-color: #1da6fc"
                 class="
                     flex flex-col flex-auto
@@ -68,6 +68,410 @@
                             13
                         </div>
                     </div>
+                </div>
+            </div> -->
+            <div
+                class="
+                    flex flex-col flex-auto
+                    bg-card
+                    shadow
+                    rounded-2xl
+                    overflow-hidden
+                "
+            >
+                <div class="flex flex-col p-6 pb-4">
+                    <!-- <div class="flex items-center justify-between">
+                        <div class="flex flex-col">
+                            <div
+                                class="
+                                    mr-4
+                                    text-lg
+                                    font-medium
+                                    tracking-tight
+                                    leading-6
+                                    truncate
+                                "
+                            >
+                                Account Balance
+                            </div>
+                            <div class="text-secondary font-medium">
+                                Monthly balance growth and avg. monthly income
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="flex items-start mt-1 mr-2">
+                        <div class="flex flex-col">
+                            <div
+                                class="
+                                    font-semibold
+                                    text-3xl
+                                    md:text-5xl
+                                    tracking-tighter
+                                "
+                            >
+                                {{ data.accountBalance.growRate }}%
+                            </div>
+                            <div
+                                class="
+                                    font-medium
+                                    text-sm text-secondary
+                                    leading-none
+                                "
+                            >
+                                Average Monthly Growth
+                            </div>
+                        </div>
+                        <div class="flex flex-col ml-8 md:ml-16">
+                            <div
+                                class="
+                                    font-semibold
+                                    text-3xl
+                                    md:text-5xl
+                                    tracking-tighter
+                                "
+                            >
+                                {{ data.accountBalance.ami | currency: "USD" }}
+                            </div>
+                            <div
+                                class="
+                                    font-medium
+                                    text-sm text-secondary
+                                    leading-none
+                                "
+                            >
+                                Average Monthly Income
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-auto">
+                    <apx-chart
+                        class="flex-auto w-full h-full"
+                        [chart]="accountBalanceOptions.chart"
+                        [colors]="accountBalanceOptions.colors"
+                        [fill]="accountBalanceOptions.fill"
+                        [series]="accountBalanceOptions.series"
+                        [stroke]="accountBalanceOptions.stroke"
+                        [tooltip]="accountBalanceOptions.tooltip"
+                        [xaxis]="accountBalanceOptions.xaxis"
+                    ></apx-chart>
+                </div>
+            </div>
+
+            <div class="mt-5 mb-3 font-medium">
+                <mat-label>Transfer Money</mat-label>
+            </div>
+            <div class="overflow-auto">
+                <div class="flex flex-row w-max pb-5">
+                    <fuse-card
+                        style="
+                            background: transparent;
+                            box-shadow: none;
+                            margin: auto;
+                        "
+                        class="flex flex-col w-full px-5 pt-4 pb-4 filter-list"
+                    >
+                        <div class="flex flex-col mt-5">
+                            <div class="text-center">
+                                <mat-icon
+                                    color="accent"
+                                    style="transform: scale(2)"
+                                    svgIcon="heroicons_outline:plus-circle"
+                                ></mat-icon>
+                            </div>
+                        </div>
+                    </fuse-card>
+
+                    <fuse-card
+                        class="
+                            flex flex-col
+                            w-full
+                            px-5
+                            pt-4
+                            pb-4
+                            filter-list
+                            mr-5
+                        "
+                        (click)="openDialog()"
+                    >
+                        <div class="flex flex-col m-auto">
+                            <div class="items-center">
+                                <div>
+                                    <img
+                                        style="width: 80%"
+                                        class="m-auto rounded-full"
+                                        src="assets/images/avatars/robot-1.png"
+                                        alt="Card cover image"
+                                    />
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="
+                                            font-medium
+                                            text-sm text-secondary
+                                        "
+                                    >
+                                        Edwards
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fuse-card>
+
+                    <fuse-card
+                        class="
+                            flex flex-col
+                            w-full
+                            px-5
+                            pt-4
+                            pb-4
+                            filter-list
+                            mr-5
+                        "
+                    >
+                        <div class="flex flex-col m-auto">
+                            <div class="items-center">
+                                <div>
+                                    <img
+                                        style="width: 80%"
+                                        class="m-auto rounded-full"
+                                        src="assets/images/avatars/robot-2.png"
+                                        alt="Card cover image"
+                                    />
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="
+                                            font-medium
+                                            text-sm text-secondary
+                                        "
+                                    >
+                                        Adam
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fuse-card>
+
+                    <fuse-card
+                        class="
+                            flex flex-col
+                            w-full
+                            px-5
+                            pt-4
+                            pb-4
+                            filter-list
+                            mr-5
+                        "
+                    >
+                        <div class="flex flex-col m-auto">
+                            <div class="items-center">
+                                <div>
+                                    <img
+                                        style="width: 80%"
+                                        class="m-auto rounded-full"
+                                        src="assets/images/avatars/robot-3.png"
+                                        alt="Card cover image"
+                                    />
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="
+                                            font-medium
+                                            text-sm text-secondary
+                                        "
+                                    >
+                                        Rebecca
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fuse-card>
+                </div>
+            </div>
+
+            <div
+                class="
+                    xl:col-span-2
+                    flex flex-col flex-auto
+                    bg-card
+                    shadow
+                    rounded-2xl
+                    overflow-hidden
+                    mt-5
+                "
+            >
+                <div class="p-6">
+                    <div
+                        class="
+                            mr-4
+                            text-lg
+                            font-medium
+                            tracking-tight
+                            leading-6
+                            truncate
+                        "
+                    >
+                        Recent transactions
+                    </div>
+                    <div class="text-secondary font-medium">
+                        1 pending, 4 completed
+                    </div>
+                </div>
+                <div class="overflow-x-auto mx-6">
+                    <table
+                        class="w-full bg-transparent"
+                        mat-table
+                        matSort
+                        [dataSource]="recentTransactionsDataSource"
+                        [trackBy]="trackByFn"
+                        #recentTransactionsTable
+                    >
+                        <!-- Transaction ID -->
+                        <ng-container matColumnDef="transactionId">
+                            <th
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef
+                            >
+                                Transaction ID
+                            </th>
+                            <td mat-cell *matCellDef="let transaction">
+                                <span
+                                    class="
+                                        pr-6
+                                        font-medium
+                                        text-sm text-secondary
+                                        whitespace-nowrap
+                                    "
+                                >
+                                    {{ transaction.transactionId }}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Date -->
+                        <ng-container matColumnDef="date">
+                            <th
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef
+                            >
+                                Date
+                            </th>
+                            <td mat-cell *matCellDef="let transaction">
+                                <span class="pr-6 whitespace-nowrap">
+                                    {{ transaction.date | date: "MMM dd, y" }}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Name -->
+                        <ng-container matColumnDef="name">
+                            <th
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef
+                            >
+                                Name
+                            </th>
+                            <td mat-cell *matCellDef="let transaction">
+                                <span class="pr-6 whitespace-nowrap">
+                                    {{ transaction.name }}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Amount -->
+                        <ng-container matColumnDef="amount">
+                            <th
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef
+                            >
+                                Amount
+                            </th>
+                            <td mat-cell *matCellDef="let transaction">
+                                <span
+                                    class="pr-6 font-medium whitespace-nowrap"
+                                >
+                                    {{ transaction.amount | currency: "USD" }}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Status -->
+                        <ng-container matColumnDef="status">
+                            <th
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef
+                            >
+                                Status
+                            </th>
+                            <td mat-cell *matCellDef="let transaction">
+                                <span
+                                    class="
+                                        inline-flex
+                                        items-center
+                                        font-bold
+                                        text-xs
+                                        px-2.5
+                                        py-0.5
+                                        rounded-full
+                                        tracking-wide
+                                        uppercase
+                                    "
+                                    [ngClass]="{
+                                        'bg-red-200 text-red-800 dark:bg-red-600 dark:text-red-50':
+                                            transaction.status === 'pending',
+                                        'bg-green-200 text-green-800 dark:bg-green-600 dark:text-green-50':
+                                            transaction.status === 'completed'
+                                    }"
+                                >
+                                    <span
+                                        class="
+                                            leading-relaxed
+                                            whitespace-nowrap
+                                        "
+                                        >{{ transaction.status }}</span
+                                    >
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Footer -->
+                        <ng-container matColumnDef="recentOrdersTableFooter">
+                            <td
+                                class="py-6 px-0 border-0"
+                                mat-footer-cell
+                                *matFooterCellDef
+                                colspan="6"
+                            >
+                                <button mat-stroked-button>
+                                    See all transactions
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr
+                            mat-header-row
+                            *matHeaderRowDef="recentTransactionsTableColumns"
+                        ></tr>
+                        <tr
+                            class="order-row h-16"
+                            mat-row
+                            *matRowDef="
+                                let row;
+                                columns: recentTransactionsTableColumns
+                            "
+                        ></tr>
+                        <tr
+                            class="h-16 border-0"
+                            mat-footer-row
+                            *matFooterRowDef="['recentOrdersTableFooter']"
+                        ></tr>
+                    </table>
                 </div>
             </div>
         </div>
