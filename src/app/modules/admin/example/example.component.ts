@@ -233,7 +233,7 @@ export class ExampleComponent {
             series: [
                 {
                     name: 'Inflation',
-                    data: [2.3, 3.1, 4.0],
+                    data: [2, 6, 4],
                 },
             ],
             chart: {
@@ -260,7 +260,7 @@ export class ExampleComponent {
             dataLabels: {
                 enabled: true,
                 formatter: function (val) {
-                    return val + '%';
+                    return '$' + val;
                 },
                 offsetY: -20,
                 style: {
